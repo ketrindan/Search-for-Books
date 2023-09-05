@@ -1,0 +1,35 @@
+.loader_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 50px 0;
+  background-image: url(../../images/book-98.gif);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+}
+
+.loader {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #a3a288;
+  border-bottom-color: #a3a288;
+  border-right-color: #a3a288;
+  animation: rotate 1s linear infinite;
+}
+
+.gif {
+  width: 50px;
+  height: 50px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

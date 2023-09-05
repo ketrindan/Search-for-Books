@@ -1,0 +1,32 @@
+.more {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 30px 0;
+  width: 100%;
+}
+
+.more_btn {
+  width: 200px;
+  height: 35px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.more_btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 425px) {
+  .more_btn {
+    width: 70%;
+  }
+}
