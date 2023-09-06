@@ -25,7 +25,7 @@ function App() {
     })
   }
 
-  getBooks('js')
+  //getBooks('js')
 
   return (
     <div className="app">

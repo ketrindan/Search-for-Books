@@ -1,5 +1,5 @@
 const baseUrl = 'https://www.googleapis.com/books/v1/volumes';
-const key = 'AIzaSyDiscXmvt6FN8z5bUxXsMsGJiwK0cPRJV4';
+const key = process.env.REACT_APP_API_KEY;
 
 class Book {
   constructor (baseUrl) {
