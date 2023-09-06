@@ -14,8 +14,31 @@
   background-repeat: no-repeat;
   box-shadow: 1px 5px 5px 0 rgba(0, 0, 0, 0.2);
   visibility: hidden;
+  opacity: 0.6;
 }
 
 .up_btn_visible {
   visibility: visible;
+}
+
+.up_btn:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .up_btn {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .up_btn {
+    width: 30px;
+    height: 30px;
+    bottom: 20px;
+    right: 20px;
+  }
 }

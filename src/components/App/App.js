@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import Header from '../Header/Header';
-import Loader from '../Loader/Loader';
-import BooksList from '../BooksList/BooksList';
+import Main from '../Main/Main';
+import BookInfo from '../BookInfo/BookInfo';
 import book from '../../utils/api';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [foundBooks, setFoundBooks] = useState(null);
   const [totalFound, setTotalFound] = useState(null);
+  const [chosenBook, setChosenBook] = useState(null);
   
   function getBooks(request, minInd, maxNum) {
     setLoading(true);
@@ -29,25 +31,37 @@ function App() {
     })
   }
 
+  function getBook(id) {
+    setLoading(true);
+    setChosenBook(null);
+    book.getBook(id)
+    .then((book) => {
+      setChosenBook(book);
+      console.log(book)
+    })
+    .catch((err) => {
+      console.log(err);
+      setIsError(true);
+    })
+    .finally(() => {
+      setLoading(false);
+      setIsError(false);
+    })
+  }
+
   return (
     <div className="app">
       <Header onBooksSearch={getBooks}/>
-      {isLoading ? <Loader /> 
-        : isError ? (
-          <p className="message">Во время запроса произошла ошибка. 
-            Возможно, проблема с соединением или сервер недоступен. 
-            Подождите немного и попробуйте ещё раз
-          </p>
-        )
-        : foundBooks === null ? (
-          <section className="empty"></section>
-        )
-        : foundBooks.length === 0 ? (
-          <p className="message">Ничего не найдено</p>
-        ) : (
-          <BooksList booksData={foundBooks} totalFound={totalFound} handleMoreBooks={getBooks}/>
-        )
-      }
+      <Routes>
+        <Route path='/' element={
+          <Main foundBooks={foundBooks} totalFound={totalFound} 
+            getBooks={getBooks} isError={isError} isLoading={isLoading}
+          />
+        }/>
+        <Route path='/:id' element={
+          <BookInfo getBook={getBook} book={chosenBook}/>
+        }/>
+      </Routes>
 
     </div>
   );

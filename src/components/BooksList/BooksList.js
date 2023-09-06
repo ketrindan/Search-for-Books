@@ -10,7 +10,6 @@ function BooksList(props) {
 
   useEffect(() => {
     props.booksData && setShownBooks(props.booksData);
-    console.log('dfg')
   }, [props.booksData])
 
   function handleMoreBooks() {

@@ -1,0 +1,132 @@
+.bookInfo {
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.message {
+  width: 100%;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.image_box {
+  background-color: #e0dada;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 300px;
+  box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+.info_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.categories {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  margin: 0 0 20px 0;
+  color: #969494;
+}
+
+.title {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+.author {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  color: #969494;
+  text-decoration: underline;
+}
+
+.container {
+  padding: 10px 10px;
+  border: 1px solid #969494;
+  min-height: 200px;
+}
+ 
+.description {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image_box {
+    padding: 20px 0;
+  }
+
+  .image {
+    width: 200px;
+    box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.4);
+  }
+
+  .info_container {
+   align-items: center;
+   padding: 20px 30px;
+  }
+  
+  .categories {
+    font-size: 12px;
+    margin: 0 0 10px 0;
+  }
+  
+  .title {
+    font-size: 16px;
+    margin: 0 0 7px 0;
+    text-align: center;
+  }
+  
+  .author {
+    font-size: 12px;
+    margin: 0 0 7px 0;
+  }
+  
+  .description {
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .image {
+    width: 100px;
+    box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.4);
+  }
+}

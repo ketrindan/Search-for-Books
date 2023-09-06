@@ -18,6 +18,11 @@ class Book {
     return fetch(`${this._baseUrl}?q=${request}&startIndex=${minInd}&maxResults=${maxNum}&key=${key}`,)
     .then(res => this._serverResponse(res));
   }
+
+  getBook(id) {
+    return fetch(`${this._baseUrl}/${id}`,)
+    .then(res => this._serverResponse(res));
+  }
 }
 
 const book = new Book(baseUrl);
