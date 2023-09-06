@@ -17,7 +17,9 @@ function Search(props) {
       setError('Нужно ввести ключевое слово');
       return
     } else {
-      props.onSubmit(values.searchRequest, props.FilterSelected)
+      props.onSubmit(values.searchRequest, 0, 30);
+      localStorage.setItem('request', values.searchRequest);
+      setError('');
     }
   }
 
@@ -30,7 +32,7 @@ function Search(props) {
         />
         <button className={searchStyles.submit_btn} type="submit"></button>
       </form>
-      <span className={searchStyles.error + (error ? searchStyles.error_active : "")}>{error}</span>
+      <span className={searchStyles.error + (error ? " "+ searchStyles.error_active : "")}>{error}</span>
       <div className={searchStyles.container}>
         <div className={searchStyles.filter_box}>
           <label className={searchStyles.filter_title} htmlFor="categories">Categories</label>

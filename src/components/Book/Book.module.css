@@ -1,0 +1,48 @@
+.book {
+  display: flex;
+  flex-direction: column;
+  background-color: #e0dada;
+  padding: 20px 10px;
+  width: 250px;
+  min-height: 340px;
+  box-sizing: border-box;
+}
+
+.image {
+  align-self: center;
+  width: 128px;
+  height: 180px;
+  object-fit: cover;
+  box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+.categories {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  margin: 20px 0 10px 0;
+  text-decoration: underline;
+  color: #969494;
+}
+
+.box {
+  margin: 24px 0 24px 0;
+}
+
+.title {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0 0 5px 0;
+}
+
+.author {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  color: #969494;
+  margin: 0;
+}

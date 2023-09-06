@@ -14,8 +14,8 @@ class Book {
     return Promise.reject(new Error(`Ошибка: ${res.status}`))
   }
 
-  getBooks(request) {
-    return fetch(`${this._baseUrl}?q=${request}&key=${key}`,)
+  getBooks(request, minInd, maxNum) {
+    return fetch(`${this._baseUrl}?q=${request}&startIndex=${minInd}&maxResults=${maxNum}&key=${key}`,)
     .then(res => this._serverResponse(res));
   }
 }
