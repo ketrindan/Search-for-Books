@@ -4,7 +4,7 @@
   background-color: #e0dada;
   padding: 20px 10px;
   width: 250px;
-  min-height: 340px;
+  min-height: 335px;
   box-sizing: border-box;
 }
 
@@ -36,6 +36,10 @@
   font-weight: bold;
   font-size: 14px;
   margin: 0 0 5px 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .author {
@@ -45,6 +49,10 @@
   font-size: 14px;
   color: #969494;
   margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 

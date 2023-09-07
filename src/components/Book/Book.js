@@ -16,8 +16,7 @@ function Book(props) {
         }
         <h3 className={bookStyles.title}>{props.book.volumeInfo.title}</h3>
         {
-          props.book.volumeInfo.authors ? <p className={bookStyles.author}>{props.book.volumeInfo.authors.join(', ')}</p> 
-          : <div className={bookStyles.box}></div>
+          props.book.volumeInfo.authors && <p className={bookStyles.author}>{props.book.volumeInfo.authors.join(', ')}</p>
         }
       </article>
     </Link>

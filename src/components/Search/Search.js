@@ -37,20 +37,20 @@ function Search(props) {
         <div className={searchStyles.filter_box}>
           <label className={searchStyles.filter_title} htmlFor="categories">Categories</label>
           <select className={searchStyles.filter_list} id="categories">
-            <option name="all">all</option>
-            <option name="art">art</option>
-            <option name="biography">biography</option>
-            <option name="computers">computers</option>
-            <option name="history">history</option>
-            <option name="medical">medical</option>
-            <option name="poetry">poetry</option>
+            <option value="all">all</option>
+            <option value="art">art</option>
+            <option value="biography">biography</option>
+            <option value="computers">computers</option>
+            <option value="history">history</option>
+            <option value="medical">medical</option>
+            <option value="poetry">poetry</option>
           </select>
         </div>
         <div className={searchStyles.filter_box}>
           <label className={searchStyles.filter_title} htmlFor="sorting">Sorting by</label>
           <select className={searchStyles.filter_list} id="sorting">
-            <option name="relevance">relevance</option>
-            <option name="newest">newest</option>
+            <option value="relevance">relevance</option>
+            <option value="newest">newest</option>
           </select>
         </div>
       </div>

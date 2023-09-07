@@ -19,7 +19,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
-  grid-template-rows: repeat(auto-fit, 340px);
+  grid-template-rows: repeat(auto-fit, 335px);
   gap: 20px;
   justify-content: center;
 }
