@@ -1,65 +1,33 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import BookInfo from '../BookInfo/BookInfo';
-import book from '../../utils/api';
+import { getBooks } from '../../services/actions/books';
 
 function App() {
-  const [isLoading, setLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [foundBooks, setFoundBooks] = useState(null);
-  const [totalFound, setTotalFound] = useState(null);
-  const [chosenBook, setChosenBook] = useState(null);
-  
-  function getBooks(request, minInd, maxNum) {
-    setLoading(true);
-    book.getBooks(request, minInd, maxNum)
-    .then((books) => {
-      console.log(books)
-      setFoundBooks(books.items);
-      setTotalFound(books.totalItems)
-    })
-    .catch((err) => {
-      console.log(err);
-      setIsError(true);
-    })
-    .finally(() => {
-      setLoading(false);
-      setIsError(false);
-    })
-  }
+  const booksState = useSelector(state => state.books);
+  const { request, sorting, startId } = booksState;
 
-  function getBook(id) {
-    setLoading(true);
-    setChosenBook(null);
-    book.getBook(id)
-    .then((book) => {
-      setChosenBook(book);
-      console.log(book)
-    })
-    .catch((err) => {
-      console.log(err);
-      setIsError(true);
-    })
-    .finally(() => {
-      setLoading(false);
-      setIsError(false);
-    })
-  }
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (request.length > 0)
+    dispatch(getBooks(request, startId, sorting))
+  }, [dispatch, request, sorting, startId])
+
 
   return (
     <div className="app">
-      <Header onBooksSearch={getBooks}/>
+      <Header />
       <Routes>
         <Route path='/' element={
-          <Main foundBooks={foundBooks} totalFound={totalFound} 
-            getBooks={getBooks} isError={isError} isLoading={isLoading}
-          />
+          <Main />
         }/>
         <Route path='/:id' element={
-          <BookInfo getBook={getBook} book={chosenBook}/>
+          <BookInfo />
         }/>
       </Routes>
 

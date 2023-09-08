@@ -1,26 +1,31 @@
+import { useSelector } from 'react-redux';
 import mainStyles from './Main.module.css'
 import Loader from '../Loader/Loader';
 import BooksList from '../BooksList/BooksList';
 
-function Main(props) {
+function Main() {
+  const { books, request, booksRequest, booksFailed, filteredBooks, filter} = useSelector(state => state.books);
+
   return (
     <section className={mainStyles.main}>
-      {props.isLoading ? <Loader /> 
-        : props.isError ? (
-          <p className={mainStyles.message}>Во время запроса произошла ошибка. 
-            Возможно, проблема с соединением или сервер недоступен. 
-            Подождите немного и попробуйте ещё раз
-          </p>
-        )
-        : props.foundBooks == null ? (
-          <p className={mainStyles.message}>Начните поиск книг</p>
-        )
-        : props.foundBooks.length === 0 ? (
-          <p className={mainStyles.message}>Ничего не найдено</p>
-        ) : (
-          <BooksList booksData={props.foundBooks} totalFound={props.totalFound} handleMoreBooks={props.getBooks}/>
-        )
-      }
+      { booksFailed ? (
+        <p className={mainStyles.message}>
+          An error occurred. 
+          There may be a connection problem or the server is unavailable. 
+          Try again later.
+        </p>
+      ) : (books.length === 0 && request.length > 0 && !booksRequest) ||
+      (filter !== 'all' && filteredBooks.length === 0 && request.length > 0 && !booksRequest)? (
+        <p className={mainStyles.message}>Nothing found</p>
+      ) : request.length === 0 ? (
+        <p className={mainStyles.message}>Start searching for books</p>
+      ) : books.length > 0 ? (
+        <BooksList />
+      ) : (
+        <></>
+      )
+    }
+    { booksRequest && <Loader /> }
     </section>
   );
 }

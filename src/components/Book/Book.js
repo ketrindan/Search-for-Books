@@ -5,11 +5,11 @@ function Book(props) {
   const { id } = props.book
 
   return (
-    <Link className={bookStyles.link} key={id} to={{
-      pathname: `/${id}`
-    }}>
+    props.book.volumeInfo && <Link className={bookStyles.link} key={id} to={{pathname: `/${id}`}}>
       <article className={bookStyles.book}>
-        <img src={props.book.volumeInfo.imageLinks.smallThumbnail} alt="book cover" className={bookStyles.image}/>
+        { props.book.volumeInfo.imageLinks && props.book.volumeInfo.imageLinks.smallThumbnail ? <img src={props.book.volumeInfo.imageLinks.smallThumbnail} 
+          alt="book cover" className={bookStyles.image}/> : <div className={bookStyles.image}></div> 
+        }
         {
           props.book.volumeInfo.categories ? <p className={bookStyles.categories}>{props.book.volumeInfo.categories[0]}</p> 
           : <div className={bookStyles.box}></div>
