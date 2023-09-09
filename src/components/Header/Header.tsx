@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import headerStyles from './Header.module.css';
 import Search from '../Search/Search';
 
-function Header() {
+const Header: FC = () => {
   return (
     <header className={headerStyles.header}>
       <h1 className={headerStyles.title}>Search for books</h1>

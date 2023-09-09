@@ -1,8 +1,8 @@
 import { HashLink } from 'react-router-hash-link';
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import upScrollBtnStyles from './UpscrollBtn.module.css';
 
-function UpScrollBtn() {
+const UpScrollBtn: FC = () =>{
   const [isVisible, setVisible] = useState(false);
 
   function setVisibility() {
