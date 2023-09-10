@@ -7,8 +7,10 @@ import {
   FILTER_BOOKS,
   SORT_BOOKS
 } from '../actions/books';
+import { IBooksState } from '../../utils/types';
+import { TBooksActions } from '../actions/books';
 
-const initialState = {
+export const initialState: IBooksState = {
   books: [],
   request: '',
   sorting: 'relevance',
@@ -21,7 +23,7 @@ const initialState = {
   booksFailed: false
 }
 
-export const booksReducer = (state = initialState, action) => {
+export const booksReducer = (state = initialState, action: TBooksActions) => {
   switch (action.type) {
     case GET_BOOKS_REQUEST: {
       return {
@@ -66,7 +68,7 @@ export const booksReducer = (state = initialState, action) => {
     case FILTER_BOOKS: {
       if (action.payload !== 'all') {
         const filteredBooks = state.books.filter((book) => book.volumeInfo.categories?.map(
-        (category) => category.toLowerCase()).includes(action.payload));
+        (category: string) => category.toLowerCase()).includes(action.payload));
 
         return {
           ...state,

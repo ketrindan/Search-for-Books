@@ -16,7 +16,7 @@ class Book {
     return Promise.reject(new Error(`Ошибка: ${res.status}`))
   }
 
-  getBooks(request: string, minInd: string, sorting: string) {
+  getBooks(request: string, minInd: number, sorting: string) {
     return fetch(this._baseUrl + '?' + new URLSearchParams({
       q: request,
       startIndex: minInd.toString(),

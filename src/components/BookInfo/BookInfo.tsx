@@ -1,9 +1,10 @@
-import bookInfoStyles from './BookInfo.module.css'
+import bookInfoStyles from './BookInfo.module.css';
+import { FC } from 'react';
 import { useParams } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../hooks/hooks';
 import UpScrollBtn from '../UpscrollBtn/UpscrollBtn';
 
-function BookInfo() {
+const BookInfo: FC = () => {
   const { id } = useParams();
 
   const books = useSelector((state) => state.books.books);

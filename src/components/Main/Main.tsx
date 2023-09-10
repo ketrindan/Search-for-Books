@@ -1,9 +1,10 @@
-import { useSelector } from 'react-redux';
+import { FC } from 'react';
+import { useSelector } from '../../hooks/hooks';
 import mainStyles from './Main.module.css'
 import Loader from '../Loader/Loader';
 import BooksList from '../BooksList/BooksList';
 
-function Main() {
+const Main: FC = () => {
   const { books, request, booksRequest, booksFailed, filteredBooks, filter} = useSelector(state => state.books);
 
   return (

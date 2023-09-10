@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
+import { TRequest } from "../utils/types";
 
-export default function useForm(inputValues: string[]) {
+export default function useForm(inputValues: TRequest) {
   const [values, setValues] = useState(inputValues);
   const [errors, setErrors] = useState({});
   const [isValid, setValid] = useState(false);
@@ -13,7 +14,7 @@ export default function useForm(inputValues: string[]) {
     setValid(event.target.closest("form")!.checkValidity());
   };
 
-  const resetForm = useCallback((newValues: string[]) => {
+  const resetForm = useCallback((newValues: TRequest) => {
     setValues({...inputValues, ...newValues});
     setErrors({});
     setValid(false);

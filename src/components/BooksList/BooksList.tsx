@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, useEffect, FC } from 'react';
+import { useDispatch, useSelector } from '../../hooks/hooks';
 import booksListStyles from './BooksList.module.css';
 import Book from '../Book/Book';
 import MoreBooks from '../MoreBooks/MoreBooks';
 import UpScrollBtn from '../UpscrollBtn/UpscrollBtn';
 import { loadMoreBooks } from '../../services/actions/books';
+import { IBook } from '../../utils/types';
 
-function BooksList() {
-  const [shownBooks, setShownBooks] = useState([]);
+const BooksList: FC = () => {
+  const [shownBooks, setShownBooks] = useState<IBook[]>([]);
 
   const { books, totalResults, filteredBooks, filter, filteredResults } = useSelector(state => state.books);
 
