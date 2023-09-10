@@ -18,7 +18,7 @@
 * TypeScript, JavaScript
 * React
 * Redux
-<!--- * Jest, Cypress -->
+* Jest
 * Адаптивная верстка
 
 ### **Ссылка на проект**
@@ -50,6 +50,4 @@ npm install
 
 `npm run deploy` - деплой проекта на Github Pages
 
-<!--- `npm test` - запуск Jest
-
-`npm run cypress:open` - запуск Cypress -->
+`npm test` - запуск Jest
