@@ -11,7 +11,7 @@ const Search: FC = () => {
     searchRequest: "",
   })
 
-  const { filter, sorting, booksRequest } = useSelector(state  => state.books);
+  const { request, filter, sorting, booksRequest } = useSelector(state  => state.books);
 
   const dispatch = useDispatch();
 
@@ -34,6 +34,10 @@ const Search: FC = () => {
     dispatch(sortBooks(e.target.value))
   }
 
+  function handleChangeRequest() {
+    return values.searchRequest === request && request !== "" ? true : false;
+  }
+
   return (
     <div className={searchStyles.search}>
       <form className={searchStyles.form} noValidate onSubmit={handleSearchSubmit}>
@@ -41,13 +45,13 @@ const Search: FC = () => {
           placeholder="Enter your request" required name="searchRequest" 
           value={values.searchRequest} onChange={onChange} disabled={booksRequest}
         />
-        <button className={searchStyles.submit_btn} type="submit" disabled={booksRequest}></button>
+        <button className={searchStyles.submit_btn} type="submit" disabled={booksRequest || handleChangeRequest()}></button>
       </form>
       <span className={searchStyles.error + (error ? " "+ searchStyles.error_active : "")}>{error}</span>
       <div className={searchStyles.container}>
         <div className={searchStyles.filter_box}>
           <label className={searchStyles.filter_title} htmlFor="categories">Categories</label>
-          <select className={searchStyles.filter_list} id="categories" value={filter} onChange={handleFilter} disabled={booksRequest}>
+          <select className={searchStyles.filter_list} id="categories" value={filter} onChange={handleFilter} disabled={booksRequest || values.searchRequest === ''}>
             <option value="all">all</option>
             <option value="art">art</option>
             <option value="biography">biography</option>
@@ -59,7 +63,7 @@ const Search: FC = () => {
         </div>
         <div className={searchStyles.filter_box}>
           <label className={searchStyles.filter_title} htmlFor="sorting">Sorting by</label>
-          <select className={searchStyles.filter_list} id="sorting" value={sorting} onChange={handleFSorting} disabled={booksRequest}>
+          <select className={searchStyles.filter_list} id="sorting" value={sorting} onChange={handleFSorting} disabled={booksRequest || values.searchRequest === ''}>
             <option value="relevance">relevance</option>
             <option value="newest">newest</option>
           </select>

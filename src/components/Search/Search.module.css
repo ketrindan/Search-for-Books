@@ -82,6 +82,11 @@
   opacity: 0.6;
 }
 
+.submit_btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .container {
   width: 100%;
   display: flex;
